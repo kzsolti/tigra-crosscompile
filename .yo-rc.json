@@ -1,0 +1,24 @@
+{
+  "generator-jhipster": {
+    "baseName": "CrossCompile",
+    "packageName": "hu.tigra.crosscompile",
+    "packageFolder": "hu/tigra/crosscompile",
+    "authenticationType": "session",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "no",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "oracle",
+    "searchEngine": "no",
+    "useSass": false,
+    "buildTool": "maven",
+    "frontendBuilder": "grunt",
+    "enableTranslation": false,
+    "enableSocialSignIn": false,
+    "rememberMeKey": "8d59df09b9d5a54bea3907010a4ff7520b8765b9",
+    "testFrameworks": [
+      "gatling"
+    ]
+  }
+}
