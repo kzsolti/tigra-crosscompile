@@ -1,0 +1,56 @@
+<div>
+    <h2>Ugylets</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="ugylet.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span>Create a new Ugylet</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ugyletszam</th>
+                    <th>Ugyfel</th>
+                    <th>Tajszam</th>
+                    <th>BeerkezesIdeje</th>
+                    <th>MellekletSzam</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="ugylet in ugylets track by ugylet.id">
+                    <td><a ui-sref="ugylet.detail({id:ugylet.id})">{{ugylet.id}}</a></td>
+                    <td>{{ugylet.ugyletszam}}</td>
+                    <td>{{ugylet.ugyfel}}</td>
+                    <td>{{ugylet.tajszam}}</td>
+                        <td>{{ugylet.beerkezesIdeje | date:'mediumDate'}}</td>
+                    <td>{{ugylet.mellekletSzam}}</td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="ugylet.detail({id:ugylet.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="ugylet.edit({id:ugylet.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="ugylet.delete({id:ugylet.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
