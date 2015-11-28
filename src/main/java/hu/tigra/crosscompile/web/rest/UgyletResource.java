@@ -3,20 +3,27 @@ package hu.tigra.crosscompile.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import hu.tigra.crosscompile.domain.Ugylet;
 import hu.tigra.crosscompile.repository.UgyletRepository;
+import hu.tigra.crosscompile.validator.UgyletValidatorFactory;
 import hu.tigra.crosscompile.web.rest.util.HeaderUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
-import javax.inject.Inject;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+
+import javax.inject.Inject;
+
+import org.grooscript.util.GrooScriptException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * REST controller for managing Ugylet.
@@ -105,5 +112,20 @@ public class UgyletResource {
         log.debug("REST request to delete Ugylet : {}", id);
         ugyletRepository.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("ugylet", id.toString())).build();
+    }
+
+    @RequestMapping(value = "/ugylets/validator",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Holder> getValidator() throws GrooScriptException {
+        Holder holder = new Holder();
+        holder.data = UgyletValidatorFactory.getJavaScript();
+        return ResponseEntity.ok(holder);
+    }
+
+    public static class Holder {
+
+        public Object data;
+
     }
 }

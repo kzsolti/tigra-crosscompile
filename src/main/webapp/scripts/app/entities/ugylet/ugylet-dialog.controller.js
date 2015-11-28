@@ -4,6 +4,11 @@ angular.module('crossCompileApp').controller('UgyletDialogController',
     ['$scope', '$stateParams', '$modalInstance', 'entity', 'Ugylet',
         function($scope, $stateParams, $modalInstance, entity, Ugylet) {
 
+        Ugylet.validator(function (result) {
+            $scope.validatorScript = result.data;
+            eval('$scope.validator = ' + result.data);
+        });
+
         $scope.ugylet = entity;
         $scope.load = function(id) {
             Ugylet.get({id : id}, function(result) {
@@ -23,6 +28,8 @@ angular.module('crossCompileApp').controller('UgyletDialogController',
 
         $scope.save = function () {
             $scope.isSaving = true;
+            var messages = $scope.validator($scope.ugylet);
+            alert(messages);
             if ($scope.ugylet.id != null) {
                 Ugylet.update($scope.ugylet, onSaveSuccess, onSaveError);
             } else {

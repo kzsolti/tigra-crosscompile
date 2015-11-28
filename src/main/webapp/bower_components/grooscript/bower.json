@@ -1,0 +1,33 @@
+{
+  "name": "grooscript",
+  "version": "1.2.2",
+  "homepage": "https://github.com/chiquitinxx/grooscript",
+  "authors": [
+    "Jorge Franco <jorge.franco.leza@gmail.com>"
+  ],
+  "description": "Grooscript libraries to work with groovy converted code",
+  "keywords": [
+    "groovy",
+    "transpiler",
+    "conversion"
+  ],
+  "main": "src/main/resources/META-INF/resources/grooscript.js",
+  "ignore": [
+    "**/.*",
+    "build.gradle",
+    "gradlew",
+    "gradlew.bat",
+    "appveyor.yml",
+    "package.json",
+    "gulpfile.js",
+    "node_modules",
+    "bower_components",
+    "doc",
+    "gradle",
+    "npm",
+    "src/test",
+    "src/main/groovy",
+    "src/main/resources/META-INF/resources/jquery.min.js",
+    "src/main/resources/META-INF/resources/testWithNode.js"
+  ]
+}

@@ -1,0 +1,92 @@
+:project-name: grooscript
+:project-full-path: chiquitinxx/grooscript
+:github-branch: master
+:current-version: 1.2.2
+:next-version: 1.2.3-SNAPSHOT
+
+image:https://snap-ci.com/{project-full-path}/branch/{github-branch}/build_image["Build Status", link="https://snap-ci.com/{project-full-path}/branch//{github-branch}"]
+image:https://travis-ci.org/{project-full-path}.svg?branch={github-branch}["Build Status", link="https://travis-ci.org/{project-full-path}"]
+image:https://ci.appveyor.com/api/projects/status/it5jtqkjeci943j8/branch/{github-branch}?svg=true["Build Status (AppVeyor)", link="https://ci.appveyor.com/project/{project-full-path}"]
+image:https://coveralls.io/repos/chiquitinxx/grooscript/badge.svg?branch={github-branch}["Coverage Status", link="https://coveralls.io/r/chiquitinxx/grooscript?branch={github-branch}"]
+
+== grooscript
+
+image:https://badges.gitter.im/Join Chat.svg["Chat",link="https://gitter.im/{project-full-path}?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
+
+Converts your Groovy or Java code to JavaScript(Groovy 2.x to Javascript ECMAScript 5). You need groovy jar greater than 2.0 to make conversions. For more information about the project, see http://grooscript.org[grooscript.org]
+
+Not a full groovy to javascript conversion. Some groovy and java features not supported, check link:http://grooscript.org/doc.html[documentation] for more info. 
+Converted code, needs link:https://github.com/{project-full-path}/blob/master/src/main/resources/META-INF/resources/grooscript.js:[grooscript.js] to run. grooscript.js inside the jar in META-INF/resources for servlet 3.0 support. Also a Node.js link:http://www.npmjs.org/package/grooscript[npm] module imports it.
+
+Try online conversions link:http://grooscript.org/conversions.html[here]. Can convert .java and .groovy files or a text fragment as:
+
+[source,groovy]
+[subs="verbatim,attributes"]
+----
+@Grab('org.grooscript:grooscript:{current-version}')
+
+import org.grooscript.GrooScript
+
+def result = GrooScript.convert '''
+    def sayHello = { println "Hello ${it}!" }
+    ['Groovy','JavaScript','GrooScript'].each sayHello'''
+
+println result
+----
+
+== Latest Versions
+
+The latest release version is *{current-version}*, released on 2015-09-19. The current development version is *{next-version}*.
+
+Releases are available from link:https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22grooscript%22[Maven Central] and link:https://bintray.com/chiquitinxx/grooscript/org.grooscript%3Agrooscript/view[Bintray].
+
+== Build
+
+Using gradle wrapper, version 2.4. Only Groovy dependencies in the project. You need JDK 1.7+ to build and test the project.
+
+First time, you have to install Node.js stuff, maybe you have to run as administrator, do it with:
+
+    ./gradlew npmInstall
+
+Create IntelliJ IDEA project:
+
+    ./gradlew idea
+
+Test project:
+
+    ./gradlew test
+
+Build project:
+
+    ./gradlew build
+
+== Tools
+
+Grails 2 link:http://grails.org/plugin/grooscript[plugin]
+
+Grails 3 link:http://grooscript.org/grails3-plugin[plugin]
+
+Gradle link:http://plugins.gradle.org/plugin/org.grooscript.conversion[plugin]
+
+Npmjs link:https://www.npmjs.org/package/grooscript[package]
+
+== License
+
+Grooscript licensed under the terms of the link:http://www.apache.org/licenses/LICENSE-2.0.html[Apache License, Version 2.0]
+
+== Contributors
+
+- Jorge Franco
+- Serge Tarkovski
+- Abel Salgado
+- Alberto Navarrete
+- Jonatas Emidio
+- yellowsnow
+
+== Contact
+
+Twitter: link:http://twitter.com/grooscript:[@grooscript]
+
+Email: mailto:grooscript@gmail.com[]
+
+Please all feedback welcome, thanks!

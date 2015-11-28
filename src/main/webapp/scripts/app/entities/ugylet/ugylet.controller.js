@@ -2,7 +2,7 @@
 
 angular.module('crossCompileApp')
     .controller('UgyletController', function ($scope, $state, $modal, Ugylet) {
-      
+
         $scope.ugylets = [];
         $scope.loadAll = function() {
             Ugylet.query(function(result) {

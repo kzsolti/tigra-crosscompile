@@ -25,6 +25,11 @@ angular.module('crossCompileApp')
                     data.beerkezesIdeje = DateUtils.convertLocaleDateToServer(data.beerkezesIdeje);
                     return angular.toJson(data);
                 }
+            },
+            'validator': {
+                method: 'GET',
+                url: 'api/ugylets/validator',
+                isArray: false
             }
         });
     });
